@@ -5,23 +5,34 @@ server:
 
 spring:
   application:
-    name: product-microservice# ============================================== #
+    name: product-microservice
+# ============================================== #
 #                    DATABASE                    #
-# ============================================== #  #  datasource:
+# ============================================== #  
+#  datasource:
 #    url: jdbd:h2:mem:productDB:DB_CLOSE_DELAY=-1:DB_CLOSE_ON_EXIT=FALSE
 #    driver-class-name: org.h2.Driver
 #    username: sa
 #    password:
 # ============================================== #
-#                 JPA/HIBERNATE                  ## ============================================== #  #  jpa:#    show-sql: true
-#    hibernate:#      ddl-auto: update #*
+#                 JPA/HIBERNATE                  #
+# ============================================== #  
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update #*
 #    database-platform: org.hibernate.dialect.H2Dialect
 
 # ============================================== #
 #          PATRON PARA ESCRITURA DE LOG          #
 # ============================================== #  
-logging:  pattern:    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_NIVEL_PATTERN:-%5p} %m%n" 
-
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_NIVEL_PATTERN:-%5p} %m%n" 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka/
 
 #* Solo etapa de desarrollo   
     
