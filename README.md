@@ -1,4 +1,4 @@
-# efmm-microservicios-store
+# microservicios-store
 Demo arquitectura de microservicios para tienda
 
 ## Spring Cloud Config
