@@ -1,3 +1,6 @@
+# ============================================== #
+#          APPLICATION
+# ============================================== #
 spring:
   application:
     name: product-microservice

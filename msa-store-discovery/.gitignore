@@ -1,14 +1,3 @@
-# Log file
-*.log
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
 HELP.md
 .gradle
 build/
@@ -36,3 +25,13 @@ bin/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/

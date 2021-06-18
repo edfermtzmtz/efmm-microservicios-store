@@ -1,15 +1,15 @@
-package efmm.msastoreregistry;
+package efmm.msa.store.discovery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
-@EnableEurekaServer
 @SpringBootApplication
-public class MsaStoreRegistryServiceApplication {
+@EnableEurekaServer
+public class MsaStoreDiscoveryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MsaStoreRegistryServiceApplication.class, args);
+		SpringApplication.run(MsaStoreDiscoveryApplication.class, args);
 	}
 
 }
