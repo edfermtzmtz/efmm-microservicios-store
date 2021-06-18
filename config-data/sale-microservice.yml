@@ -1,17 +1,65 @@
-# Applicatio Configuration
-
-server:
-  port: 8005
-
+# ============================================== #
+#          APPLICATION
+# ============================================== #
 spring:
   application:
     name: sale-microservice
+
+# ============================================== #
+#          SERVER
+# ============================================== #
+server:
+  port: 8005
+
+# ============================================== #
+#          LOG
+# ============================================== #
 logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_NIVEL_PATTERN:-%5p} %m%n" 
+
+# ============================================== #
+#            EUREKA
+# ============================================== #
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8083/eureka/
 
-#* Solo etapa de desarrollo   
+# ============================================== #
+#            RESILIENCE4J
+# ============================================== #
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 1s # Es el tiempo que el circuit braker estará en estado Abierto antes de pasar al estado Semiabierto.
+        failureRateThreshold: 60 # Límite de umbral antes de que pase al estado abierto.
+        eventConsumerBufferSize: 10
+        recordExceptions: # Registra el tipo de excepción en la que desea que se active el circuito.
+                - org.springframework.web.client.HttpServerErrorException
+                - java.util.concurrent.TimeoutException
+                - java.io.IOException
+#        ignoreExceptions:
+#                - efmm.msa.store.exception.BusinessException
+      configShared:
+            slidingWindowSize: 100
+            minimumNumberOfCalls: 5
+            permittedNumberOfCallsInHalfOpenState: 30
+            waitDurationInOpenState: 5000
+            failureRateThreshold: 50
+            eventConsumerBufferSize: 10
+            recordExceptions: 
+                - org.springframework.web.client.HttpServerErrorException
+                - java.util.concurrent.TimeoutException
+                - java.io.IOException
+    instances:
+      mainService:
+        baseConfig: default
+      cbConfigA:
+        baseConfig: configShared

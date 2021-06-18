@@ -3,26 +3,22 @@
 # ============================================== #
 spring:
   application:
-    name: customer-microservice
+    name: dicovery-service
 
 # ============================================== #
 #          SERVER
 # ============================================== #
 server:
-  port: 8004
-
-# ============================================== #
-#          LOG
-# ============================================== #
-logging:
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_NIVEL_PATTERN:-%5p} %m%n" 
+  port: 8083
 
 # ============================================== #
 #            EUREKA
 # ============================================== #
 eureka:
+  instance:
+    hostname: localhost
   client:
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8083/eureka/  
-    
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

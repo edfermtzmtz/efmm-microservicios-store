@@ -1,13 +1,33 @@
-# Applicatio Configuration
-
-server:
-  port: 8040
-
+# ============================================== #
+#          APPLICATION
+# ============================================== #
 spring:
   application:
     name: product-microservice
+
 # ============================================== #
-#                    DATABASE                    #
+#          SERVER
+# ============================================== #
+server:
+  port: 8040
+
+# ============================================== #
+#            EUREKA
+# ============================================== #
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka/ 
+
+# ============================================== #
+#          LOG
+# ============================================== #
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_NIVEL_PATTERN:-%5p} %m%n"   
+
+# ============================================== #
+#             DATABASE
 # ============================================== #  
 #  datasource:
 #    url: jdbd:h2:mem:productDB:DB_CLOSE_DELAY=-1:DB_CLOSE_ON_EXIT=FALSE
@@ -15,7 +35,7 @@ spring:
 #    username: sa
 #    password:
 # ============================================== #
-#                 JPA/HIBERNATE                  #
+#             JPA/HIBERNATE
 # ============================================== #  
 #  jpa:
 #    show-sql: true
@@ -23,16 +43,4 @@ spring:
 #      ddl-auto: update #*
 #    database-platform: org.hibernate.dialect.H2Dialect
 
-# ============================================== #
-#          PATRON PARA ESCRITURA DE LOG          #
-# ============================================== #  
-logging:
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_NIVEL_PATTERN:-%5p} %m%n" 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8083/eureka/
-
-#* Solo etapa de desarrollo   
-    
+#* Solo etapa de desarrollo 
