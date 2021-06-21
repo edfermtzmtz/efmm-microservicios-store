@@ -7,21 +7,21 @@ server:
 # ============================================== #
 #          SPRING SECURITY
 # ============================================== #
-spring:
-  security:
-    user:
-      name: admin
-      password: pwd
+#spring:
+#  security:
+#    user:
+#      name: root
+#      password: s3cr3t
 
 # ============================================== #
 #            EUREKA
 # ============================================== #
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false # True -> El cliente incorporado intentara registrarse con el servidor Eureka.
-    fetchRegistry: false # True -> El cliente incorporado intentara obtener el registro de Eureka 
-    serviceUrl:
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    registerWithEureka: false # True -> El cliente incorporado intentara registrarse con el servidor Eureka.
+#    fetchRegistry: false # True -> El cliente incorporado intentara obtener el registro de Eureka 
+#    serviceUrl:
+#      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
 
