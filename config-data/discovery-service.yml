@@ -5,13 +5,23 @@ server:
   port: 8083
 
 # ============================================== #
+#          SPRING SECURITY
+# ============================================== #
+spring:
+  security:
+    user:
+      name: admin
+      password: pwd
+
+# ============================================== #
 #            EUREKA
 # ============================================== #
 eureka:
   instance:
     hostname: localhost
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: false # True -> El cliente incorporado intentara registrarse con el servidor Eureka.
+    fetchRegistry: false # True -> El cliente incorporado intentara obtener el registro de Eureka 
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+
