@@ -14,10 +14,10 @@ logging:
 # ============================================== #
 #            EUREKA
 # ============================================== #
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8083/eureka/
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8083/eureka/
 
 # ============================================== #
 #            RESILIENCE4J
