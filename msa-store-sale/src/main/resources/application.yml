@@ -10,5 +10,3 @@ spring:
       password: s3cr3t
   config:
     import: optional:configserver:http://localhost:8081
-
-

@@ -11,3 +11,29 @@ spring:
       password: s3cr3t
   config:
     import: optional:configserver:http://localhost:8081
+
+# ============================================== #
+#          SPRING SECURITY
+# ============================================== #
+  security:
+    user:
+      name: admin
+      password: pwd
+
+# ============================================== #
+#            EUREKA
+# ============================================== #
+eureka:
+  server:
+    renewal-percent-threshold: 0.49 # Recomendado solo en desarrollo el deafult es 0.85
+  instance:
+    hostname: localhost
+
+#    lease-renewal-interval-in-seconds: 10
+#    non-secure-port-enabled: false
+#    secure-port-enabled: true  # Para que se trabaje con la conexión segura.
+  client:
+    registerWithEureka: false # True -> El cliente incorporado intentara registrarse con el servidor Eureka.
+    fetchRegistry: false # True -> El cliente incorporado intentara obtener el registro de Eureka 
+    serviceUrl:
+      defaultZone: http://admin:pwd@${eureka.instance.hostname}:${server.port}/eureka/
