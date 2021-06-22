@@ -1,0 +1,15 @@
+# ============================================== #
+#          SERVER
+# ============================================== #
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+
+# ============================================== #
+#            EUREKA
+# ============================================== #
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://admin:pwd@${eureka.instance.hostname}:8083/eureka/ 
